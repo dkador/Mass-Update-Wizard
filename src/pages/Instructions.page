@@ -1,0 +1,40 @@
+<apex:page >
+	<apex:sectionHeader title="Mass Update Wizard Setup Instructions"
+		description="This describes some of the setup you can do after the Mass Update Wizard page is installed to use the custom visualforce pages for Configuration, FilterValue, and UpdateValue edit pages. This is necessary because Standard Button overrides are not packageable."/>
+	Please follow these instructions:
+	<br/>
+	<ol>
+		<li>Click on the "Setup" link in the upper right corner of your screen.</li>
+		<li>Under the "App Setup" section, go to the "Create" -> "Objects" page.</li>
+		<li>Click on the "MUW Configuration" object.</li>
+		<li>In the "Standard Buttons and Links" related list, see the "Edit", "Clone", and "New" items (see figure 1 below).</li>
+		<li>For "Edit", do the following (see figure 2 below):
+			<ol type="a">
+				<li>Change "Content Type" to "Visualforce Page".</li>
+				<li>Change "Content Name" to "ConfigurationEdit [muw__ConfigurationEdit]".</li>
+			</ol>
+		</li>
+		<li>For "New", do the following (see figure 2 below):
+			<ol type="a">
+				<li>Change "Content Type" to "Visualforce Page".</li>
+				<li>Change "Content Name" to "ConfigurationEdit [muw__ConfigurationEdit]".</li>
+			</ol>
+		</li>
+		<li>For "Clone", do the following (see figure 2 below):
+			<ol type="a">
+				<li>Change "Content Type" to "Visualforce Page".</li>
+				<li>Change "Content Name" to "ConfigurationEdit [muw__ConfigurationEdit]".</li>
+			</ol>
+		</li>
+		<li>Repeat steps 1-7, except instead of choosing the "MUW Configuration" object, choose "MUW Select Value", "MUW Filter Value", and "MUW Update Value", and instead of "ConfigurationEdit [muw__ConfigurationEdit]", choose the "SelectValueEdit", "FilterValueEdit", or "UpdateValueEdit".</li>
+	</ol>
+		
+	<p/>
+	Figure 1
+	<br/><apex:image url="{!$Resource.Figure1}"/>
+	
+	<p/>
+	Figure 2
+	<br/><apex:image url="{!$Resource.Figure2}"/>
+		
+</apex:page>

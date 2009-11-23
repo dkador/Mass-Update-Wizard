@@ -1,0 +1,231 @@
+<apex:page controller="MassUpdateWizardController">
+    <apex:sectionHeader title="Mass Update Wizard"
+        description="You can use this tool to perform mass update operations to your data."/>
+    <apex:outputPanel id="optionsPanel">
+        <apex:form >
+            Set the following options to control the behavior of this application:&nbsp;
+            <apex:selectCheckboxes value="{!selectedOptions}" layout="pageDirection">
+                <apex:selectOptions value="{!configurationOptions}"/>
+                <apex:actionSupport event="onchange" action="{!doNothing}" reRender="mainPanel" status="mainStatus"/>
+            </apex:selectCheckboxes>
+        </apex:form>
+    </apex:outputPanel>
+    <apex:outputPanel id="mainPanel">
+        <apex:actionstatus id="mainStatus" startText="Rerendering...">
+            <apex:facet name="stop">
+                <apex:outputPanel id="selectPanel">
+                    <apex:outputPanel id="typePanel">
+                        <apex:form >
+                        <p/>Object type to update:&nbsp;
+                        <apex:selectList value="{!selectedType}" size="1">
+                            <apex:selectOptions value="{!types}"/>
+                            <apex:actionSupport event="onchange" action="{!doNothing}" reRender="fieldsPanel" status="mainStatus"/>
+                        </apex:selectList>
+                        </apex:form>
+                    </apex:outputPanel>
+                    <p/>
+                    <apex:outputPanel id="fieldsPanel">
+                        <apex:actionstatus id="fieldsStatus" startText="Waiting...">
+                            <apex:facet name="stop">
+                                <apex:outputPanel >
+                                    <apex:form >
+	                                    Find records that match the following fields:
+	                                    <br/>(Note that you'll need to use SOQL syntax for things like dates and date/times. Please see the API documentation for complete details.) 
+	                                    <br/>(Date syntax is: yyyy-mm-dd and DateTime syntax is yyyy-mm-ddThh:mm:ss.xxxZ where the capital letters are actually there.)
+	                                    <br/> 
+	                                    <apex:selectList value="{!filteredField1}" size="1">
+	                                        <apex:selectOptions value="{!filterableFields}"/>
+	                                        <apex:actionSupport event="onchange" action="{!doNothing}" reRender="operator1Panel" status="operator1Status" />
+	                                    </apex:selectList>
+	                                    &nbsp;
+	                                    <apex:outputPanel id="operator1Panel">
+	                                        <apex:actionstatus id="operator1Status" startText="Rerendering...">
+	                                            <apex:facet name="stop">
+	                                                <apex:selectList value="{!selectedOperator1}" size="1"> 
+	                                                    <apex:selectOptions value="{!operators1}"/>
+	                                                </apex:selectList>
+	                                            </apex:facet>
+	                                        </apex:actionstatus>
+	                                    </apex:outputPanel>
+	                                    &nbsp;
+	                                    <apex:inputText value="{!comparisonValue1}"/>
+	                                    &nbsp;
+	                                    <apex:selectList value="{!logicalJoin1}" size="1">
+	                                        <apex:selectOptions value="{!logicalJoins}"/>
+	                                    </apex:selectList>
+	                                    <br/>
+	                                    <apex:selectList value="{!filteredField2}" size="1">
+	                                        <apex:selectOptions value="{!filterableFields}"/>
+	                                        <apex:actionSupport event="onchange" action="{!doNothing}" reRender="operator2Panel" status="operator2Status" />
+	                                    </apex:selectList>
+	                                    &nbsp;
+	                                    <apex:outputPanel id="operator2Panel">
+	                                        <apex:actionstatus id="operator2Status" startText="Rerendering...">
+	                                            <apex:facet name="stop">
+	                                                <apex:selectList value="{!selectedOperator2}" size="1"> 
+	                                                    <apex:selectOptions value="{!operators2}"/>
+	                                                </apex:selectList>
+	                                            </apex:facet>
+	                                        </apex:actionstatus>
+	                                    </apex:outputPanel>
+	                                    &nbsp;
+	                                    <apex:inputText value="{!comparisonValue2}"/>
+	                                    &nbsp;
+	                                    <apex:selectList value="{!logicalJoin2}" size="1">
+	                                        <apex:selectOptions value="{!logicalJoins}"/>
+	                                    </apex:selectList>
+	                                    <br/>
+	                                    <apex:selectList value="{!filteredField3}" size="1">
+	                                        <apex:selectOptions value="{!filterableFields}"/>
+	                                        <apex:actionSupport event="onchange" action="{!doNothing}" reRender="operator3Panel" status="operator3Status"/>
+	                                    </apex:selectList>
+	                                    &nbsp;
+	                                    <apex:outputPanel id="operator3Panel">
+	                                        <apex:actionstatus id="operator3Status" startText="Rerendering...">
+	                                            <apex:facet name="stop">
+	                                                <apex:selectList value="{!selectedOperator3}" size="1"> 
+	                                                    <apex:selectOptions value="{!operators3}"/>
+	                                                </apex:selectList>
+	                                            </apex:facet>
+	                                        </apex:actionstatus>
+	                                    </apex:outputPanel>
+	                                    &nbsp;
+	                                    <apex:inputText value="{!comparisonValue3}"/>
+	                                    &nbsp;
+	                                    <apex:selectList value="{!logicalJoin3}" size="1">
+	                                        <apex:selectOptions value="{!logicalJoins}"/>
+	                                    </apex:selectList>
+	                                    <br/>
+	                                    <apex:selectList value="{!filteredField4}" size="1">
+	                                        <apex:selectOptions value="{!filterableFields}"/>
+	                                        <apex:actionSupport event="onchange" action="{!doNothing}" reRender="operator4Panel" status="operator4Status"/>
+	                                    </apex:selectList>
+	                                    &nbsp;
+	                                    <apex:outputPanel id="operator4Panel">
+	                                        <apex:actionstatus id="operator4Status" startText="Rerendering...">
+	                                            <apex:facet name="stop">
+	                                                <apex:selectList value="{!selectedOperator4}" size="1"> 
+	                                                    <apex:selectOptions value="{!operators4}"/>
+	                                                </apex:selectList>
+	                                            </apex:facet>
+	                                        </apex:actionstatus>
+	                                    </apex:outputPanel>
+	                                    &nbsp;
+	                                    <apex:inputText value="{!comparisonValue4}"/>
+	                                    &nbsp;
+	                                    <apex:selectList value="{!logicalJoin4}" size="1">
+	                                        <apex:selectOptions value="{!logicalJoins}"/>
+	                                    </apex:selectList>
+	                                    <br/>
+	                                    <apex:selectList value="{!filteredField5}" size="1">
+	                                        <apex:selectOptions value="{!filterableFields}"/>
+	                                        <apex:actionSupport event="onchange" action="{!doNothing}" reRender="operator5Panel" status="operator5Status"/>
+	                                    </apex:selectList>
+	                                    &nbsp;
+	                                    <apex:outputPanel id="operator5Panel">
+	                                        <apex:actionstatus id="operator5Status" startText="Rerendering...">
+	                                            <apex:facet name="stop">
+	                                                <apex:selectList value="{!selectedOperator5}" size="1"> 
+	                                                    <apex:selectOptions value="{!operators5}"/>
+	                                                </apex:selectList>
+	                                            </apex:facet>
+	                                        </apex:actionstatus>
+	                                    </apex:outputPanel>
+	                                    &nbsp;
+	                                    <apex:inputText value="{!comparisonValue5}"/>
+                                        <apex:outputPanel id="showFieldsPanel">
+                                            <p/>
+                                            Before updating the matching records, display the following fields:
+                                            <br/>
+                                            <apex:selectList value="{!queriedField1}" size="1">
+                                                <apex:selectOptions value="{!queryableFields}"/>
+                                            </apex:selectList>
+                                            <br/>
+                                            <apex:selectList value="{!queriedField2}" size="1">
+                                                <apex:selectOptions value="{!queryableFields}"/>
+                                            </apex:selectList>
+                                            <br/>
+                                            <apex:selectList value="{!queriedField3}" size="1">
+                                                <apex:selectOptions value="{!queryableFields}"/>
+                                            </apex:selectList>
+                                            <br/>
+                                            <apex:selectList value="{!queriedField4}" size="1">
+                                                <apex:selectOptions value="{!queryableFields}"/>
+                                            </apex:selectList>
+                                            <br/>
+                                            <apex:selectList value="{!queriedField5}" size="1">
+                                                <apex:selectOptions value="{!queryableFields}"/>
+                                            </apex:selectList>
+                                        </apex:outputPanel>
+	                                    <apex:outputPanel id="showUpdatePanel">
+	                                        <p/>
+	                                        On the matching records, update the following fields:
+	                                        <br/>
+	                                        <apex:selectList value="{!updateField1}" size="1">
+	                                            <apex:selectOptions value="{!updateableFields}"/>
+	                                        </apex:selectList>
+	                                        to&nbsp;
+	                                        <apex:inputText value="{!updateValue1}"/>
+	                                        <br/>
+	                                        <apex:selectList value="{!updateField2}" size="1">
+	                                            <apex:selectOptions value="{!updateableFields}"/>
+	                                        </apex:selectList>
+	                                        to&nbsp;
+	                                        <apex:inputText value="{!updateValue2}"/>
+	                                        <br/>
+	                                        <apex:selectList value="{!updateField3}" size="1">
+	                                            <apex:selectOptions value="{!updateableFields}"/>
+	                                        </apex:selectList>
+	                                        to&nbsp;
+	                                        <apex:inputText value="{!updateValue3}"/>
+	                                        <br/>
+	                                        <apex:selectList value="{!updateField4}" size="1">
+	                                            <apex:selectOptions value="{!updateableFields}"/>
+	                                        </apex:selectList>
+	                                        to&nbsp;
+	                                        <apex:inputText value="{!updateValue4}"/>
+	                                        <br/>
+	                                        <apex:selectList value="{!updateField5}" size="1">
+	                                            <apex:selectOptions value="{!updateableFields}"/>
+	                                        </apex:selectList>
+	                                        to&nbsp;
+	                                        <apex:inputText value="{!updateValue5}"/>
+	                                        <p/>
+	                                        Click to find out how many records this action would affect.
+	                                        <br/>
+	                                        <apex:commandButton action="{!findAffectedRecords}" value="Find Records" reRender="mainPanel" status="updateActionStatus"/>
+	                                        <br/>
+	                                        <apex:outputText escape="false" value="{!recordCountMessage}"/>
+	                                    </apex:outputPanel>
+	                                    <p/>
+	                                    <apex:outputPanel id="updateActionPanel" rendered="{!showUpdateButton}">
+									        <apex:actionstatus id="updateActionStatus" startText="">
+									            <apex:facet name="stop">
+									                <apex:outputPanel >
+				                                        Click to update all matching records. Please do not click more than once per update operation. Updating a large number of records may take several moments.
+				                                        <br/>
+									                	<apex:commandButton action="{!updateRecords}" value="Update Records" reRender="resultsPanel,fieldsPanel" status="resultsStatus"/>		
+									                </apex:outputPanel>
+								                </apex:facet>
+							                </apex:actionstatus>
+						                </apex:outputPanel>
+                                    </apex:form>
+                                </apex:outputPanel>
+                            </apex:facet>
+                        </apex:actionstatus>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="resultsPanel">
+                        <apex:actionstatus id="resultsStatus">
+                            <apex:facet name="start">
+                                <apex:outputText value="Handling request..."/>
+                            </apex:facet>
+                            <apex:facet name="stop">
+                                <apex:outputText value="{!updateMessage}"/>
+                            </apex:facet>
+                        </apex:actionstatus>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputPanel>
+</apex:page>

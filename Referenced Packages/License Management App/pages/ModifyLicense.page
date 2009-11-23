@@ -1,0 +1,101 @@
+<apex:page standardController="sfLma__License__c" extensions="sfLma.statusPicklistExtension">
+<script>
+function findInputElementByIdSubstring(idSubstring){
+    var elements = document.getElementsByTagName("input");
+    if(elements.length != null){
+        for(var i=0;i< elements.length;i++){
+            if(elements[i].id.indexOf(idSubstring) != -1){
+                return elements[i];
+            }
+        }
+    }
+}
+function processSeatsAndExpirationValues(){
+    var seats = findInputElementByIdSubstring('license__seats');
+    var exp = findInputElementByIdSubstring('license__expiration');
+     var sCheckbox = findInputElementByIdSubstring('seats_checkbox');
+     var eCheckbox = findInputElementByIdSubstring('exp_checkbox');
+
+     if(sCheckbox.checked){
+         seats.disabled='';
+         seats.value='-1';
+     }
+     if(eCheckbox.checked){
+         exp.disabled = '';
+         exp.value = ' ';
+     }
+}
+function enableSiteLicense(){
+    var seats = findInputElementByIdSubstring('license__seats');
+    seats.value='-1';
+    seats.disabled='disabled';
+}
+function disableSiteLicense(){
+    var seats = findInputElementByIdSubstring('license__seats');
+    seats.disabled='';
+    seats.value=' ';
+}
+function enableNoExpire(){
+     var exp = findInputElementByIdSubstring('license__expiration');
+     exp.value='';exp.disabled='disabled';
+}
+function disableNoExpire(){
+    var exp = findInputElementByIdSubstring('license__expiration');
+    exp.disabled='';
+}
+function removeSpaces(string) {
+    var tstring = '';
+    string = '' + string;
+    splitstring = string.split(' ');
+    for(i = 0; i < splitstring.length; i++){
+        tstring += splitstring[i];
+    }
+    return tstring;
+}
+</script>
+    <apex:sectionHeader title="License Edit"
+        subtitle="{!sfLma__License__c.name}" />
+    <apex:form id="license_form">
+            <apex:pageBlock title="License Edit" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save" onclick="processSeatsAndExpirationValues()"/>
+                <apex:commandButton action="{!cancel}" value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:messages title="Error Message" style="color:#CC0000;font-weight:bold;text-align:center;"></apex:messages>
+            <apex:pageBlockSection title="License Information" columns="2">
+                <apex:outputField id="license__name"
+                    value="{!sfLma__License__c.name}" />
+                <apex:outputField id="license__packageVersion"
+                    value="{!sfLma__License__c.sfLma__Package_Version__c}" />
+                <apex:outputField id="license__licenseType"
+                    value="{!sfLma__License__c.sfLma__License_Type__c}" />
+                <apex:outputField id="license__install"
+                    value="{!sfLma__License__c.sfLma__Install_Date__c}" />
+                <apex:inputField id="license__seats"
+                    value="{!sfLma__License__c.sfLma__Seats__c}">
+                    <input type="checkbox" id="seats_checkbox"
+                        onclick="if(this.checked){enableSiteLicense();}
+                    else {disableSiteLicense();}">This is a Site License</input>
+                </apex:inputField>
+                <apex:inputField id="license__expiration"
+                    value="{!sfLma__License__c.sfLma__Expiration__c}">
+                    <input type="checkbox" id="exp_checkbox"
+                        onclick="if(this.checked){enableNoExpire();}
+                    else{disableNoExpire();}">Does not Expire</input>
+                </apex:inputField>
+                <apex:outputText value="{!sfLma__License__c.sfLma__Status__c}" rendered="false"/>
+                <apex:pageblockSectionItem >
+                  <apex:outputLabel value="Status" for="status"/>
+                   <apex:selectList value="{!status}" size="1">
+                        <apex:selectOptions value="{!options}"/>
+                 </apex:selectList>
+                </apex:pageblockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+<script>
+//alert(findInputElementByIdSubstring('license__expiration').value);
+if(findInputElementByIdSubstring('license__seats').value == '-1'){enableSiteLicense();findInputElementByIdSubstring('seats_checkbox').checked='checked';}
+if(removeSpaces(findInputElementByIdSubstring('license__expiration').value) == ''){enableNoExpire();findInputElementByIdSubstring('exp_checkbox').checked='checked';}
+</script>
+</apex:page>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>An object that replicates information from the license object in the subscriber&apos;s Salesforce organization. Records are created each time a subscriber successfully installs a package.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>This field displays the Account associated with the license after the partner converts the Lead to an account as part of Lead Conversion process</description>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>R00N30000001JvRMEA0</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>This field displays the Contact associated with the license after the partner converts the Lead to a contact as part of Lead Conversion process</description>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>R00N30000001JvR6EAK</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Expiration_Date__c</fullName>
+        <description>A formula field which displays the Expiration Date or “Does not expire&quot; based on the value in the Expiration field.</description>
+        <formula>if(  Expiration__c &lt;&gt; date(1970,1,1),text( Expiration__c ),&quot;Does not expire&quot;)</formula>
+        <label>Expiration Date</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Expiration__c</fullName>
+        <description>Expiration Date of the License, 1/1/1970 represents a perpetual license</description>
+        <label>Expiration</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Help__c</fullName>
+        <formula>(HYPERLINK(&quot;http://www.salesforce.com/docs/en/lma/index_CSH.htm#lma_license_detail.htm&quot;, &quot; Help for License&quot;)) &amp; &quot; &quot; &amp; (IMAGE(&quot;/img/btn_help.gif&quot;, &quot;Help&quot;))</formula>
+        <label>Help</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Install_Date__c</fullName>
+        <description>The Date this Package Version was initially installed by the developer. (Does not get updated as part of upgrades.)</description>
+        <label>Install Date</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <description>Lead generated from this install. This field becomes blank once the lead is converted to an account / contact in the lead conversion process</description>
+        <label>Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipName>R00N30000001JvRAEA0</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>License_Status__c</fullName>
+        <formula>$RecordType.Name</formula>
+        <label>License Status</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>License_Type__c</fullName>
+        <description>This field indicates the type of license record. For example, if the license record is &quot;Read-Only&quot;, this license record cannot be modified.</description>
+        <label>License Type</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Licensed_Seats__c</fullName>
+        <description>A text field which displays the number of Licensed Seats or “Site License” based on the numeric field</description>
+        <formula>IF( Seats__c &gt;=0,  TEXT(Seats__c ), &quot;Site License&quot;)</formula>
+        <label>Licensed Seats</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Package_License_ID__c</fullName>
+        <description>ID of package license for uninstall tracking</description>
+        <label>Package License ID</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Package_Version__c</fullName>
+        <label>Package Version</label>
+        <referenceTo>Package_Version__c</referenceTo>
+        <relationshipName>R00N30000001JvQxEAK</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Proxy_User__c</fullName>
+        <description>Proxy user in subscriber org</description>
+        <label>Proxy User</label>
+        <length>40</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Seats__c</fullName>
+        <description>number of seats covered by license</description>
+        <label>Seats</label>
+        <precision>6</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>This is the Status of the Package License in the Subscriber Org</description>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Trial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Uninstalled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Subscriber_Org_ID__c</fullName>
+        <description>This is the ID of the Subscriber organization</description>
+        <label>Subscriber Org ID</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <label>License</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Lead__c</columns>
+        <columns>Package_Version__c</columns>
+        <columns>Licensed_Seats__c</columns>
+        <columns>Install_Date__c</columns>
+        <columns>Expiration_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>L-{00000}</displayFormat>
+        <label>License Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Licenses</pluralLabel>
+    <recordTypes>
+        <fullName>Active</fullName>
+        <active>true</active>
+        <label>Active</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Expired</fullName>
+        <active>true</active>
+        <label>Expired</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Suspended</fullName>
+        <active>true</active>
+        <label>Suspended</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Trial</fullName>
+        <active>true</active>
+        <label>Trial</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Uninstalled</fullName>
+        <active>true</active>
+        <label>Uninstalled</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Uninstalled</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Lead__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Package_Version__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Install_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>License_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Licensed_Seats__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expiration_Date__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Lead__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>License_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Licensed_Seats__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expiration_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Modify_License</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>url</linkType>
+        <masterLabel>Modify License</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/sfLma__ModifyLicense?id={!License__c.Id}</url>
+    </webLinks>
+</CustomObject>

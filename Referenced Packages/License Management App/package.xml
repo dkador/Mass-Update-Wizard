@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License Management App</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <description>This is the Application that Publishers use to track the different versions of managed packages (that they have on AppExchange) and the licenses of subscribers who have installed the different versions of the managed package.</description>
+    <namespacePrefix>sfLma</namespacePrefix>
+    <types>
+        <members>ProcessLead</members>
+        <members>TestLicenseUpdates</members>
+        <members>statusPicklistExtension</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ModifyLicense</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>updateCustomerLicense</members>
+        <members>updatePackages</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>LicenseManagementApp</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Lead.Subscriber_Org_Type__c</members>
+        <members>License__c.Account__c</members>
+        <members>License__c.Contact__c</members>
+        <members>License__c.Expiration_Date__c</members>
+        <members>License__c.Expiration__c</members>
+        <members>License__c.Help__c</members>
+        <members>License__c.Install_Date__c</members>
+        <members>License__c.Lead__c</members>
+        <members>License__c.License_Status__c</members>
+        <members>License__c.License_Type__c</members>
+        <members>License__c.Licensed_Seats__c</members>
+        <members>License__c.Package_License_ID__c</members>
+        <members>License__c.Package_Version__c</members>
+        <members>License__c.Proxy_User__c</members>
+        <members>License__c.Seats__c</members>
+        <members>License__c.Status__c</members>
+        <members>License__c.Subscriber_Org_ID__c</members>
+        <members>Package_Version__c.Help__c</members>
+        <members>Package_Version__c.Is_Beta__c</members>
+        <members>Package_Version__c.Package__c</members>
+        <members>Package_Version__c.Release_Date__c</members>
+        <members>Package_Version__c.Sequence__c</members>
+        <members>Package_Version__c.Version_ID__c</members>
+        <members>Package_Version__c.Version__c</members>
+        <members>Package__c.Developer_Name__c</members>
+        <members>Package__c.Developer_Org_ID__c</members>
+        <members>Package__c.Help__c</members>
+        <members>Package__c.Latest_Version__c</members>
+        <members>Package__c.Lead_Manager__c</members>
+        <members>Package__c.Package_ID__c</members>
+        <members>Package__c.Release_Date__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>License__c</members>
+        <members>Package_Version__c</members>
+        <members>Package__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>License__c</members>
+        <members>Package_Version__c</members>
+        <members>Package__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>LicenseManagementApp</members>
+        <name>Document</name>
+    </types>
+    <types>
+        <members>License__c-Edit License Layout</members>
+        <members>License__c-License Layout</members>
+        <members>License__c-Read-Only License Layout</members>
+        <members>Package_Version__c-Package Version Layout</members>
+        <members>Package__c-Package Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>License__c.All</members>
+        <members>Package_Version__c.All</members>
+        <members>Package__c.All</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>License__c.Active</members>
+        <members>License__c.Expired</members>
+        <members>License__c.Suspended</members>
+        <members>License__c.Trial</members>
+        <members>License__c.Uninstalled</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>License__c.Modify_License</members>
+        <name>WebLink</name>
+    </types>
+    <version>16.0</version>
+</Package>

@@ -1,0 +1,21 @@
+<apex:page standardController="Configuration__c" 
+           extensions="ConfigurationRunResultsController"> 
+    <apex:outputPanel id="actionPanel">
+        <apex:form >
+        	<apex:outputText escape="false" value="{!recordCountMessage}"/>
+        	<p/>
+        	Click the following button if you wish to proceed with updating matching records.
+            <apex:commandButton value="Process Update" action="{!doUpdate}" reRender="resultsPanel"/>
+        </apex:form>
+        <p/>
+    </apex:outputPanel>
+    <apex:outputPanel id="resultsPanel">
+        <apex:actionStatus id="resultsStatus" startText="Performing update...">
+            <apex:facet name="stop">
+                <apex:outputPanel >
+                    {!updateMessage}
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:outputPanel>
+</apex:page>

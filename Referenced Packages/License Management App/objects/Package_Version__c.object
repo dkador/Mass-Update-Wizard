@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object represents a specific version of a package uploaded by the developer to the AppExchange. Licenses relate to this object, since a user has a specific version installed in their Salesforce organization.</description>
+    <enableActivities>true</enableActivities>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Help__c</fullName>
+        <formula>(HYPERLINK(&quot;http://www.salesforce.com/docs/en/lma/index_CSH.htm#lma_package_version_details.htm&quot;, &quot;Help for Package Version&quot;)) &amp; &quot; &quot; &amp; (IMAGE(&quot;/img/btn_help.gif&quot;, &quot;Help&quot;))</formula>
+        <label>Help</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Is_Beta__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Tracks if the version is beta or has been released</description>
+        <label>Beta</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Package__c</fullName>
+        <label>Package</label>
+        <referenceTo>Package__c</referenceTo>
+        <relationshipName>R00N30000001JvR7EAK</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Release_Date__c</fullName>
+        <label>Release Date</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <description>Package version sequence</description>
+        <label>Sequence</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Version_ID__c</fullName>
+        <label>Version ID</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Version__c</fullName>
+        <label>Version</label>
+        <length>20</length>
+        <type>Text</type>
+    </fields>
+    <label>Package Version</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Package Version Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Package Versions</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Package__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Version__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Release_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Is_Beta__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

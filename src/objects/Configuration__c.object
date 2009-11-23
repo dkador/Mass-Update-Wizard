@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This is the parent object for storing a particular mass update operator that a user wants to perform repeatedly.</description>
+    <fields>
+        <fullName>type__c</fullName>
+        <description>This specifies which type of records will be updated.</description>
+        <inlineHelpText>Choose the object type of the records you wish to update.</inlineHelpText>
+        <label>SObject Type</label>
+        <length>80</length>
+        <required>true</required>
+        <type>Text</type>
+    </fields>
+    <label>MUW Configuration</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>MUW Configuration Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>MUW Configurations</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>type__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>DoMassUpdate</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasScrollbars>true</hasScrollbars>
+        <height>768</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Do Mass Update</masterLabel>
+        <openType>newWindow</openType>
+        <page>ConfigurationRunResults</page>
+        <position>none</position>
+        <protected>false</protected>
+        <width>1024</width>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,24 @@
+<apex:page standardController="SelectValue__c" extensions="SelectValueEditController">
+    <apex:form >
+        <apex:pageBlock mode="edit" title="MUW Select Value Edit">
+         <apex:pageBlockButtons >
+            <apex:commandButton value="Save" action="{!save}"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+         </apex:pageBlockButtons>
+         <apex:messages />
+         <apex:pageBlockSection columns="1">
+            <apex:inputField value="{!SelectValue__c.name}" required="true"/>
+            <apex:pageBlockSectionItem helpText="Choose the name of the field you wish to display.">
+                <apex:outputLabel value="Field Name" for="field_name"/>
+                <apex:selectList required="true" value="{!fieldName}" size="1" id="sobj_type">
+                    <apex:selectOptions value="{!queryableFields}"/>
+                </apex:selectList>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="MUW Configuration"/>
+                <apex:outputText value="{!configurationName}"/>
+            </apex:pageBlockSectionItem>
+         </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

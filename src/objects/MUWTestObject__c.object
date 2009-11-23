@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>We need an object that contains every field type for the unit tests.</description>
+    <fields>
+        <fullName>Double__c</fullName>
+        <label>Double</label>
+        <precision>18</precision>
+        <scale>3</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>MUW_Test_Object__c</fullName>
+        <label>MUW Test Object</label>
+        <referenceTo>MUWTestObject__c</referenceTo>
+        <relationshipLabel>MUW Test Objects</relationshipLabel>
+        <relationshipName>R00N80000002yFcxEAE</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>boolean__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Boolean</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>currency__c</fullName>
+        <label>Currency</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>date__c</fullName>
+        <label>Date</label>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>datetime__c</fullName>
+        <label>DateTime</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>msp__c</fullName>
+        <label>Multi-Select Picklist</label>
+        <picklist>
+            <picklistValues>
+                <fullName>a</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>b</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>percent__c</fullName>
+        <label>Percent</label>
+        <precision>18</precision>
+        <scale>3</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>picklist__c</fullName>
+        <label>Picklist</label>
+        <picklist>
+            <picklistValues>
+                <fullName>a</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>b</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>MUW Test Object</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>MUW Test Object Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>MUW Test Objects</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

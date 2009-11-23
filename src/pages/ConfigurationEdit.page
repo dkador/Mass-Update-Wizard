@@ -1,0 +1,20 @@
+<apex:page standardController="Configuration__c" extensions="ConfigurationEditController">
+    <apex:form >
+        <apex:pageBlock mode="edit" title="MUW Configuration Edit">
+         <apex:pageBlockButtons >
+            <apex:commandButton value="Save" action="{!save}"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+         </apex:pageBlockButtons>
+         <apex:messages />
+         <apex:pageBlockSection columns="1">
+            <apex:inputField value="{!Configuration__c.name}" required="true"/>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="SObject Type" for="sobj_type"/>
+                <apex:selectList required="true" value="{!theType}" size="1" id="sobj_type">
+                    <apex:selectOptions value="{!supportedTypes}"/>
+                </apex:selectList>
+            </apex:pageBlockSectionItem>
+         </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

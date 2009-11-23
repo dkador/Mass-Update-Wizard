@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This stores a particular value for an update value.  An update value contains:
+
+* The field name to update.
+* The value to set the field to.</description>
+    <fields>
+        <fullName>Configuration__c</fullName>
+        <label>MUW Configuration</label>
+        <referenceTo>Configuration__c</referenceTo>
+        <relationshipLabel>MUW Update Values</relationshipLabel>
+        <relationshipName>R00N60000001Zvl0EAC</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>FieldName__c</fullName>
+        <description>The field name of the field to update.</description>
+        <inlineHelpText>Choose the name of the field you wish to update.</inlineHelpText>
+        <label>Field Name</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>FieldValue__c</fullName>
+        <description>The value to set the selected field to.</description>
+        <inlineHelpText>Choose the value to set the selected field to.</inlineHelpText>
+        <label>FIeld Value</label>
+        <length>32000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>MUW Update Value</label>
+    <nameField>
+        <label>MUW Update Value Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>MUW Update Values</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

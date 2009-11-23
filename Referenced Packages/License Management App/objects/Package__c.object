@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A Package Object represents information about the package as it is defined in the developer&apos;s Salesforce Organization. A record is created or updated each time a new version of the package is uploaded to AppExchange.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Developer_Name__c</fullName>
+        <label>Developer Name</label>
+        <length>80</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Developer_Org_ID__c</fullName>
+        <label>Developer Org ID</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Help__c</fullName>
+        <formula>(HYPERLINK(&quot;http://www.salesforce.com/docs/en/lma/index_CSH.htm#lma_package_detail.htm&quot;, &quot;Help for Packages&quot;)) &amp; &quot; &quot; &amp; (IMAGE(&quot;/img/btn_help.gif&quot;, &quot;Help&quot;))</formula>
+        <label>Help</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Latest_Version__c</fullName>
+        <label>Latest Version</label>
+        <length>20</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Manager__c</fullName>
+        <description>The User in the LMO who is responsible for managing the leads generated for this package. They will become the owner of any lead generated.</description>
+        <label>Lead Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000001JvRJEA0</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Package_ID__c</fullName>
+        <label>Package ID</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Release_Date__c</fullName>
+        <label>Release Date</label>
+        <type>Date</type>
+    </fields>
+    <label>Package</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Package Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Packages</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Latest_Version__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead_Manager__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Developer_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Release_Date__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

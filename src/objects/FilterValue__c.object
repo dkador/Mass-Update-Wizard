@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This stores a particular filter value for a configuration.  A filter value contains:
+
+* The name of the field to filter on.
+* The type of filter to apply.
+* The value to compare the field&apos;s stored value to.</description>
+    <fields>
+        <fullName>Configuration__c</fullName>
+        <label>MUW Configuration</label>
+        <referenceTo>Configuration__c</referenceTo>
+        <relationshipLabel>MUW Filter Values</relationshipLabel>
+        <relationshipName>R00N60000001ZvklEAC</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>FieldName__c</fullName>
+        <description>The field name of the field to filter on.</description>
+        <inlineHelpText>Choose the name of the field you wish to filter on.</inlineHelpText>
+        <label>Field Name</label>
+        <length>80</length>
+        <required>true</required>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>FilterValue__c</fullName>
+        <description>The value to which the field value should be compared.</description>
+        <inlineHelpText>Choose the value to which the field value will be compared.</inlineHelpText>
+        <label>Filter Value</label>
+        <length>32000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LogicalJoin__c</fullName>
+        <description>The logical join that will be used to join this filter value with the next filter value (if it exists).</description>
+        <inlineHelpText>Choose how this filter value will be logically joined with the next filter value (if it exists).  The order of filter values is determined by the names of the filter value records (alphabetically).</inlineHelpText>
+        <label>Logical Join</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AND</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Operator__c</fullName>
+        <description>This controls the way the field values are compared to the specified values.  For example, the filter can check that the field value is or is not equal to the specified value.</description>
+        <inlineHelpText>Choose the way you wish to compare the field value to the specified value.</inlineHelpText>
+        <label>Operator</label>
+        <length>25</length>
+        <required>true</required>
+        <type>Text</type>
+    </fields>
+    <label>MUW Filter Value</label>
+    <nameField>
+        <label>MUW Filter Value Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>MUW Filter Values</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>
